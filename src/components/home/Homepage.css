@@ -1,5 +1,4 @@
-main {
-    border: 2px;
+.homepage {
     grid-row: 2;
     grid-column: 1 / 13;
     display: grid;

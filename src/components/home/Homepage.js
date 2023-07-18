@@ -1,16 +1,17 @@
 import "./Homepage.css";
-import restauranfood from "../../assets/restauranfood.jpg";
+// import restauranfood from "../../assets/restauranfood.jpg";
 import salad from "../../assets/greek salad.jpg";
 import bruchetta from "../../assets/bruchetta.svg";
 import lemon_dessert from "../../assets/lemon dessert.jpg";
 import mario from "../../assets/Mario and Adrian A.jpg";
 import restaurant from "../../assets//restaurant.jpg";
 import chefB from "../../assets/restaurant chef B.jpg";
+import HeroComponent from "./HeroComponent";
 
-const Main = () => {
+const Homepage = () => {
   return (
-    <main>
-      <section className="hero-background"></section>
+    <main className="homepage">
+      {/* <section className="hero-background"></section>
       <section className="hero-section">
         <div className="hero-content">
           <div>
@@ -28,7 +29,8 @@ const Main = () => {
         <div className="hero-image">
           <img src={restauranfood} alt="banner_pics" />
         </div>
-      </section>
+      </section> */}
+      <HeroComponent disableReserveTable={false} />
       <section className="highlights-section">
         <div className="specials-header">
           <h1>This week specials!</h1>
@@ -132,4 +134,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Homepage;

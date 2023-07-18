@@ -1,0 +1,17 @@
+.booking-page{
+    grid-row: 2;
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-rows: 400px 100px 1fr;
+    grid-template-columns: repeat(8, 1fr);
+}
+.booking-content{
+    grid-row: 3;
+    grid-column: 3/7;
+    margin-bottom: 25px;
+}
+
+.booking-content form{
+    display: grid; 
+    gap: 20px;
+}
