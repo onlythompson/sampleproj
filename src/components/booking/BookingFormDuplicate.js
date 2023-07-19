@@ -1,37 +1,23 @@
 import "./Booking.css";
 import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 
-const BookingForm = (props) => {
-  const reservedInfo = {
-    reserved_date: "",
-    reserved_time: "",
-    nos_of_guest: 0,
-    occasion: "",
-  };
-
-  const formik = useFormik({
-    initialValues: reservedInfo,
-    onSubmit: (values) => {
-      // console.log("Submitted. ", values)
-      console.log("Submitted: ", values)
-      props.submitHandler(values)
-      formik.resetForm()
-    },
-    validationSchema: Yup.object({
-      reserved_date: Yup.string().required("Required"),
-      reserved_time: Yup.string().required("Required"),
-      nos_of_guest: Yup.string()
-        .required("Required")
-        .min(1, "Expected Guest Should be specified"),
-      occasion: Yup.string().required("Required"),
-    }),
+const BookingFormDuplicate = (props) => {
+  const [reservedInfo, setReservedInfo] = React.useState({
+    reserved_date: '',
+    reserved_time: undefined,
+    nos_of_guest: 1,
+    occasion: undefined,
   });
 
-
   const changeHandler = (e) => {
-    formik.handleChange(e);
+    // console.log(e)
+
+    setReservedInfo(() => {
+      return {
+        ...reservedInfo,
+        [e.target.name] : e.target.value,
+      };
+    });
     if (e.target.id === "reserved_date") {
       props.updateTimes({
         type: "dateChanged",
@@ -40,10 +26,52 @@ const BookingForm = (props) => {
     }
   };
 
+  const submit = (e) => {
+    e.preventDefault();
+    if (validEntries()) {
+      console.log("Submitted");
+      props.submitHandler(reservedInfo);
+      resetEntries();
+    }
+  };
+ 
+  const validEntries = () => {
+    if (
+      reservedInfo.reserved_date === undefined ||
+      reservedInfo.reserved_date === ""
+    ) {
+      return false;
+    }
+    if (
+      reservedInfo.reserved_time === undefined ||
+      reservedInfo.reserved_time === ""
+    ) {
+      return false;
+    }
+
+    if (reservedInfo.nos_of_guest === 0 || reservedInfo.nos_of_guest < 1) {
+      return false;
+    }
+
+    if (reservedInfo.occasion === undefined || reservedInfo.occasion === "") {
+      return false;
+    }
+
+    return true;
+  };
+
+  const resetEntries = () => {
+    setReservedInfo({
+      reserved_date: undefined,
+      reserved_time: undefined,
+      nos_of_guest: undefined,
+      occasion: undefined,
+    });
+  };
   return (
     <div className="booking-content">
       <h2>Make your reservations using the form below:</h2>
-      <form onSubmit={formik.handleSubmit}>
+      <form>
         <div className="form_control">
           <div className="form_control_input">
             <label htmlFor="reserved_date">
@@ -53,25 +81,26 @@ const BookingForm = (props) => {
               id="reserved_date"
               name="reserved_date"
               type="date"
-              {...formik.getFieldProps("reserved_date")}
               onChange={changeHandler}
-              aria-label="date input"
+              aria-label="On Click"
+              value={reservedInfo.reserved_date}
               required
             />
           </div>
-          {formik.errors.reserved_date? (
-            <p className="error_message">{formik.errors.reserved_date}</p>
+          {reservedInfo.reserved_date === undefined ? (
+            <p className="error_message">Required</p>
           ) : null}
         </div>
         <div className="form_control">
           <div className="form_control_input">
-            <label htmlFor="reserved_time">
+            <label htmlFor="reserved-time">
               Choose time <span>*</span>:{" "}
             </label>
             <select
               id="reserved_time"
               name="reserved_time"
-              {...formik.getFieldProps("reserved_time")}
+              value={reservedInfo.reserved_time}
+              onChange={changeHandler}
               required
             >
               <option></option>
@@ -94,8 +123,9 @@ const BookingForm = (props) => {
               max="10"
               id="nos_of_guest"
               name="nos_of_guest"
-              {...formik.getFieldProps("nos_of_guest")}
+              value={reservedInfo.nos_of_guest}
               required
+              onChange={changeHandler}
             />
           </div>
         </div>
@@ -107,8 +137,9 @@ const BookingForm = (props) => {
             <select
               id="occasion"
               name="occasion"
-              {...formik.getFieldProps("occasion")}
+              value={reservedInfo.occasion}
               required
+              onChange={changeHandler}
             >
               <option value=""></option>
               <option value="Birthday">Birthday</option>
@@ -116,15 +147,10 @@ const BookingForm = (props) => {
             </select>
           </div>
         </div>
-        <input
-          className="primary-button medium-text"
-          type="submit"
-          value="Make Your reservation"
-          aria-label="submit button"
-        />
+        <input className="primary-button medium-text" type="submit" value="Make Your reservation" onClick={submit} />
       </form>
     </div>
   );
 };
 
-export default BookingForm;
+export default BookingFormDuplicate;

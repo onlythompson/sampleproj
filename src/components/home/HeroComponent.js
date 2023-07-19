@@ -17,16 +17,16 @@ const HeroComponent = (props) => {
       <section className="hero-section">
         <div className="hero-content">
           <div>
-            <h1>Little Lemon</h1>
-            <h3>Chicago</h3>
-            <p>
+            <h1 className="title-text">Little Lemon</h1>
+            <h2 className="subtitle-text">Chicago</h2>
+            <p className="paragraph-text">
               We are truly a family owned Mediterranean restaurant focused on
               traditional recipes served with a modern twist
             </p>
           </div>
           <div className="hero-reserve">
             {
-              props.showReserveButton & <button className="primary-button"onClick={handleClick}>Reserve a Table</button>
+              props.showReserveTableButton && <button className="primary-button medium-text"onClick={handleClick}>Reserve a Table</button>
             }
           </div>
         </div>

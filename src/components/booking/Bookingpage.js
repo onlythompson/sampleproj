@@ -15,40 +15,30 @@ const updateTimes = (times, action) => {
 };
 
 const Bookingpage = () => {
-  // const [availableTimes , setAvailableTimes] = React.useState([])
   const initializeTimes = () => {
-    // return initialTimes;
-    // setAvailableTimes(initialTimes)
-    //After Testing
     return fetchAPI(new Date('2023-07-18'))
- 
   };
 
   const [availableTimes, dispatch] = React.useReducer(
     updateTimes,
     initializeTimes()
   );
+ 
   const navigate = useNavigate()
-  
+
   const submitHandler= (reservedInfo) =>{
-    if(submitAPI(reservedInfo))
+    if(submitAPI(reservedInfo)){
       navigate("/booking-confirmation")
+    }
+     
   }
 
-
-  useEffect(() => {
-    // fetchAPI().then((response) =>{
-
-    // })
-  },[]);
-
-  // initializeTimes()
   return (
     <main className="booking-page">
-      <HeroComponent showReserveButton={true} />
+      <HeroComponent showReserveTableButton={false} />
       <BookingForm
         availableTimes={availableTimes}
-        setAvailableTimes={dispatch}
+        updateTimes={dispatch}
         submitHandler={submitHandler}
       />
     </main>

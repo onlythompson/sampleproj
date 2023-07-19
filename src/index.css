@@ -1,15 +1,10 @@
 body {
   margin: 0;
-  font-family: 'Markazi Text', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Karla', sans-serif;
+  font-family: 'Markazi Text', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  box-sizing: border-box;
 }
 
 .container {
@@ -20,8 +15,36 @@ code {
 }
 
 
+h1,
+h2,
+h3,
+h4,
+h5 and h6 {
+  font-family: 'Markazi Text', 'Karla';
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  
+}
+
+.title-text {
+  font-size: 64px;
+}
+
+.subtitle-text {
+  font-size: 40px;
+}
+
+.medium-text {
+  font-size: 18px;
+}
+
+.paragraph-text, span{
+  font-family: 'Karla', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+}
+
 @media screen and (max-width:768px) {
-  .container{
+  .container {
     height: 50vh;
   }
 }

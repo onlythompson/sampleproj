@@ -14,4 +14,36 @@
 .booking-content form{
     display: grid; 
     gap: 20px;
+    font-family: 'Markazi Text', 'Karla';
+    font-size: 18px;
 }
+
+.form_control .form_control_input{
+    display: flex;
+    /* justify-content: space-between; */
+}
+.form_control_input label{
+    margin-right: 20px;
+}
+.form_control_input input, .form_control_input select{
+    flex: 1;
+} 
+.error{
+   border: 1px solid red;
+}
+.error_message{
+    color: red;
+ }
+ .no_error{
+    display: none;
+ }
+
+ input:invalid {
+    border: 1px solid red;
+ }
+ input:focus:valid{
+    border: 1px solid green;
+ }
+ input:focus:invalid{
+    border: 1px solid red;
+ }

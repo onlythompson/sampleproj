@@ -9,12 +9,15 @@ header {
 
 nav ul li{
     display: inline-block;
-    padding: 10px;
+    padding: 10px; 
 }
 nav ul li a{
     color: black;
     text-decoration: none;
+    font-family: 'Markazi Text', 'Karla';
+    font-size: 18px;
     padding: 5px;
+
 
 }
 

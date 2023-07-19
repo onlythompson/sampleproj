@@ -14,22 +14,22 @@ const Footer = () => {
           <h3>Doormat Navigation</h3>
           <ul>
             <li>
-              <Link path="/">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link path="/">About</Link>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <Link path="/">Menu</Link>
+              <Link to="/menu">Menu</Link>
             </li>
             <li>
-              <Link path="/booking">Reservation</Link>
+              <Link to="/booking">Reservation</Link>
             </li>
             <li>
-              <Link path="/">Order Online</Link>
+              <Link to="/order-online">Order Online</Link>
             </li>
             <li>
-              <Link path="/">Login</Link>
+              <Link to="/login">Login</Link>
             </li>
           </ul>
         </div>

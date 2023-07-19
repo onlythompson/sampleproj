@@ -11,29 +11,10 @@ import HeroComponent from "./HeroComponent";
 const Homepage = () => {
   return (
     <main className="homepage">
-      {/* <section className="hero-background"></section>
-      <section className="hero-section">
-        <div className="hero-content">
-          <div>
-            <h1>Little Lemon</h1>
-            <h3>Chicago</h3>
-            <p>
-              We are truly a family owned Mediterranean restaurant focused on
-              traditional recipes served with a modern twist
-            </p>
-          </div>
-          <div className="hero-reserve">
-            <button className="primary-button">Reserve a Table</button>
-          </div>
-        </div>
-        <div className="hero-image">
-          <img src={restauranfood} alt="banner_pics" />
-        </div>
-      </section> */}
-      <HeroComponent disableReserveTable={false} />
+      <HeroComponent showReserveTableButton={true} />
       <section className="highlights-section">
         <div className="specials-header">
-          <h1>This week specials!</h1>
+          <h1 className="title-text">This week specials!</h1>
           <button className="primary-button">Online Menu</button>
         </div>
         <div id="special-article">
@@ -82,7 +63,7 @@ const Homepage = () => {
           <div className="testimony">
             <h4>Rating</h4>
             <div>
-              <img src={mario} alt="Adrain" />
+              <img src={chefB} alt="Adrain" />
               <h5>Adrain</h5>
             </div>
             <p>Labore dolor tempor elit id consectetur officia cillum.</p>
@@ -98,7 +79,7 @@ const Homepage = () => {
           <div className="testimony">
             <h4>Rating</h4>
             <div>
-              <img src={mario} alt="Adrain" />
+              <img src={chefB} alt="Adrain" />
               <h5>Adrain</h5>
             </div>
             <p>Labore dolor tempor elit id consectetur officia cillum.</p>
